@@ -211,7 +211,7 @@ async function main(
   }
 }
 
-describe("did-Ckb-ts", () => {
+describe("did-ckb-ts", () => {
   test("it should process a genesis operation without associated did:plc correctly", async () => {
     let result = await plc.generateOperations();
     await main(result, { noAssociatePlc: true });

@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`did-Ckb-ts it should re-create the local id extension example: local-id 1`] = `"did:plc:bxvfvvygwbcnbmknn73t6pbu"`;
+exports[`did-ckb-ts it should re-create the local id extension example: local-id 1`] = `"did:plc:bxvfvvygwbcnbmknn73t6pbu"`;
 
-exports[`did-Ckb-ts it should re-create the local id extension example: local-id-migration-tx 1`] = `
+exports[`did-ckb-ts it should re-create the local id extension example: local-id-migration-tx 1`] = `
 {
   "cellDeps": [
     {
@@ -55,9 +55,9 @@ exports[`did-Ckb-ts it should re-create the local id extension example: local-id
 }
 `;
 
-exports[`did-Ckb-ts it should re-create the local id extension example: local-id-migration-tx-hash 1`] = `"0xcb86447276a89c20276a667ada34640341e9e9ea47b68548241a934ff49e9fea"`;
+exports[`did-ckb-ts it should re-create the local id extension example: local-id-migration-tx-hash 1`] = `"0xcb86447276a89c20276a667ada34640341e9e9ea47b68548241a934ff49e9fea"`;
 
-exports[`did-Ckb-ts it should re-create the local id extension example: plc-genesis-op 1`] = `
+exports[`did-ckb-ts it should re-create the local id extension example: plc-genesis-op 1`] = `
 {
   "alsoKnownAs": [
     "at://alice.example.com",
@@ -81,7 +81,7 @@ exports[`did-Ckb-ts it should re-create the local id extension example: plc-gene
 }
 `;
 
-exports[`did-Ckb-ts it should re-create the local id extension example: witness 1`] = `
+exports[`did-ckb-ts it should re-create the local id extension example: witness 1`] = `
 {
   "localIdAuthorization": {
     "history": [
@@ -96,7 +96,7 @@ exports[`did-Ckb-ts it should re-create the local id extension example: witness 
 }
 `;
 
-exports[`did-Ckb-ts it should re-create the spec example: creation-tx 1`] = `
+exports[`did-ckb-ts it should re-create the spec example: creation-tx 1`] = `
 {
   "cellDeps": [
     {
@@ -147,9 +147,9 @@ exports[`did-Ckb-ts it should re-create the spec example: creation-tx 1`] = `
 }
 `;
 
-exports[`did-Ckb-ts it should re-create the spec example: creation-tx-hash 1`] = `"0xe54bb705cea6e500767ed4c0ba9ee92cad71e6b39c55283591147c5d10cc12b5"`;
+exports[`did-ckb-ts it should re-create the spec example: creation-tx-hash 1`] = `"0xe54bb705cea6e500767ed4c0ba9ee92cad71e6b39c55283591147c5d10cc12b5"`;
 
-exports[`did-Ckb-ts it should re-create the spec example: data0 1`] = `
+exports[`did-ckb-ts it should re-create the spec example: data0 1`] = `
 Extended {
   "type": "DidCkbDataV1",
   "value": Extended {
@@ -159,7 +159,7 @@ Extended {
 }
 `;
 
-exports[`did-Ckb-ts it should re-create the spec example: data1 1`] = `
+exports[`did-ckb-ts it should re-create the spec example: data1 1`] = `
 Extended {
   "type": "DidCkbDataV1",
   "value": Extended {
@@ -169,7 +169,7 @@ Extended {
 }
 `;
 
-exports[`did-Ckb-ts it should re-create the spec example: deactivation-tx 1`] = `
+exports[`did-ckb-ts it should re-create the spec example: deactivation-tx 1`] = `
 {
   "cellDeps": [
     {
@@ -215,7 +215,7 @@ exports[`did-Ckb-ts it should re-create the spec example: deactivation-tx 1`] = 
 }
 `;
 
-exports[`did-Ckb-ts it should re-create the spec example: update-tx 1`] = `
+exports[`did-ckb-ts it should re-create the spec example: update-tx 1`] = `
 {
   "cellDeps": [
     {
@@ -266,4 +266,4 @@ exports[`did-Ckb-ts it should re-create the spec example: update-tx 1`] = `
 }
 `;
 
-exports[`did-Ckb-ts it should re-create the spec example: update-tx-hash 1`] = `"0x781140553ba39702e39f6d8c851512549c7b930e1cb34200ab2e1b73354eccbb"`;
+exports[`did-ckb-ts it should re-create the spec example: update-tx-hash 1`] = `"0x781140553ba39702e39f6d8c851512549c7b930e1cb34200ab2e1b73354eccbb"`;
