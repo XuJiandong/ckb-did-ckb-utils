@@ -94,7 +94,7 @@ async function main(
   // When testing invalid CBOR scenarios, use "0x82" which represents a CBOR array
   // expecting 2 elements but provides none, making it invalid CBOR format
   let cborData = config?.invalidCbor ? bytesFrom("0x82") : cbor.encode("");
-  let DidCkbData = molecule.DidCkbData.from({
+  let didCkbData = molecule.DidCkbData.from({
     value: {
       document: cborData,
       localId: transferredFrom,
@@ -109,7 +109,7 @@ async function main(
     const inputCell = resource.mockCell(
       alwaysSuccessScript,
       typeScript,
-      hexFrom(DidCkbData.toBytes()),
+      hexFrom(didCkbData.toBytes()),
     );
     // input cells
     for (let i = 0; i < (config?.inputCellCount ?? 1); i++) {
@@ -121,7 +121,7 @@ async function main(
       tx.outputs.push(
         Resource.createCellOutput(alwaysSuccessScript, typeScript),
       );
-      let newDidCkbData = DidCkbData.clone();
+      let newDidCkbData = didCkbData.clone();
       if (config?.updateLocalId) {
         newDidCkbData.value.localId = hexFrom(newLocalId("0x00"));
       } else {
@@ -148,7 +148,7 @@ async function main(
       tx.outputs.push(
         Resource.createCellOutput(alwaysSuccessScript, typeScript),
       );
-      tx.outputsData.push(hexFrom(DidCkbData.toBytes()));
+      tx.outputsData.push(hexFrom(didCkbData.toBytes()));
     }
   }
 
@@ -164,7 +164,7 @@ async function main(
     if (!result.sig) {
       throw new Error("Signature is required");
     }
-    let CkbWitness = molecule.DidCkbWitness.from({
+    let ckbWitness = molecule.DidCkbWitness.from({
       localIdAuthorization: {
         history: result.history,
         sig: result.sig,
@@ -172,7 +172,7 @@ async function main(
       },
     });
     if (config?.moleculeCompatible) {
-      CkbWitness = molecule.TestWitness.from({
+      ckbWitness = molecule.TestWitness.from({
         localIdAuthorization: {
           history: result.history,
           sig: result.sig,
@@ -182,7 +182,7 @@ async function main(
       });
     }
     let witnessArgs = WitnessArgs.from({
-      outputType: CkbWitness.toBytes(),
+      outputType: ckbWitness.toBytes(),
     });
     tx.setWitnessArgsAt(0, witnessArgs);
   }
@@ -315,21 +315,21 @@ describe("did-ckb-ts", () => {
       },
     };
 
-    const DidCkbData0 = molecule.DidCkbData.from({
+    const didCkbData0 = molecule.DidCkbData.from({
       value: {
         document: cbor.encode(doc0),
         localId: null,
       },
     });
-    const DidCkbData1 = molecule.DidCkbData.from({
+    const didCkbData1 = molecule.DidCkbData.from({
       value: {
         document: cbor.encode(doc1),
         localId: null,
       },
     });
 
-    expect(DidCkbData0).toMatchSnapshot("data0");
-    expect(DidCkbData1).toMatchSnapshot("data1");
+    expect(didCkbData0).toMatchSnapshot("data0");
+    expect(didCkbData1).toMatchSnapshot("data1");
 
     // Creation Example
     {
@@ -349,7 +349,7 @@ describe("did-ckb-ts", () => {
           numFrom(600),
         ),
       );
-      tx.outputsData.push(hexFrom(DidCkbData0.toBytes()));
+      tx.outputsData.push(hexFrom(didCkbData0.toBytes()));
 
       const verifier = Verifier.from(resource, tx);
       const txJson = jsonify(tx);
@@ -369,7 +369,7 @@ describe("did-ckb-ts", () => {
       const inputCell = new Cell(
         new OutPoint(previousTxHash, numFrom(0)),
         new CellOutput(numFrom(600), alwaysSuccessScript, typeScript),
-        hexFrom(DidCkbData0.toBytes()),
+        hexFrom(didCkbData0.toBytes()),
       );
       resource.cells.set(inputCell.outPoint.toBytes().toString(), inputCell);
       tx.inputs.push(Resource.createCellInput(inputCell));
@@ -381,7 +381,7 @@ describe("did-ckb-ts", () => {
           numFrom(599),
         ),
       );
-      tx.outputsData.push(hexFrom(DidCkbData1.toBytes()));
+      tx.outputsData.push(hexFrom(didCkbData1.toBytes()));
 
       const verifier = Verifier.from(resource, tx);
       const txJson = jsonify(tx);
@@ -401,7 +401,7 @@ describe("did-ckb-ts", () => {
       const inputCell = new Cell(
         new OutPoint(previousTxHash, numFrom(0)),
         new CellOutput(numFrom(599), alwaysSuccessScript, typeScript),
-        hexFrom(DidCkbData1.toBytes()),
+        hexFrom(didCkbData1.toBytes()),
       );
       resource.cells.set(inputCell.outPoint.toBytes().toString(), inputCell);
       tx.inputs.push(Resource.createCellInput(inputCell));
@@ -469,7 +469,7 @@ describe("did-ckb-ts", () => {
         },
       },
     };
-    const DidCkbData = molecule.DidCkbData.from({
+    const didCkbData = molecule.DidCkbData.from({
       value: {
         document: cbor.encode(doc),
         localId,
@@ -487,7 +487,7 @@ describe("did-ckb-ts", () => {
     tx.outputs.push(
       Resource.createCellOutput(alwaysSuccessScript, typeScript, numFrom(600)),
     );
-    tx.outputsData.push(hexFrom(DidCkbData.toBytes()));
+    tx.outputsData.push(hexFrom(didCkbData.toBytes()));
 
     await plc.signDidCkb(migration, 0, tx.hash());
     expect(migration.sig).toBeTruthy();
@@ -497,16 +497,16 @@ describe("did-ckb-ts", () => {
     expect(cbor.decode(bytesFrom(migration.history[0]!))).toMatchSnapshot(
       "plc-genesis-op",
     );
-    const CkbWitness = molecule.DidCkbWitness.from({
+    const ckbWitness = molecule.DidCkbWitness.from({
       localIdAuthorization: {
         history: migration.history,
         sig: migration.sig,
         rotationKeyIndices: migration.rotationKeyIndices,
       },
     });
-    expect(jsonify(CkbWitness)).toMatchSnapshot("witness");
+    expect(jsonify(ckbWitness)).toMatchSnapshot("witness");
     let witnessArgs = WitnessArgs.from({
-      outputType: CkbWitness.toBytes(),
+      outputType: ckbWitness.toBytes(),
     });
     tx.setWitnessArgsAt(0, witnessArgs);
     const verifier = Verifier.from(resource, tx);

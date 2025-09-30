@@ -58,10 +58,7 @@ export type DidCkbDataLike = {
     DidCkbDataV1,
   }),
 )
-export class DidCkbData extends mol.Entity.Base<
-  DidCkbDataLike,
-  DidCkbData
->() {
+export class DidCkbData extends mol.Entity.Base<DidCkbDataLike, DidCkbData>() {
   constructor(
     public type: "DidCkbDataV1",
     public value: DidCkbDataV1,
