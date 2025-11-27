@@ -103,55 +103,6 @@
         "0x5500000010000000550000005500000041000000619dcd35819d01ad0b85ebb238e6727f10c1a1d063b31745f542c8868bbaf1904147c196ba72ae90d35945955415ad536e9a31cf00f293162a8f51897357e3a800"
       ]
     },
-    "0x6888aa39ab30c570c2c30d9d5684d3769bf77265a7973211a3c087fe8efbf738": {
-      "version": "0x0",
-      "cell_deps": [
-        {
-          "out_point": {
-            "tx_hash": "0x71a7ba8fc96349fea0ed3a5c47992e3b4084b031a42264a018e0072e8172e46c",
-            "index": "0x0"
-          },
-          "dep_type": "dep_group"
-        }
-      ],
-      "header_deps": [],
-      "inputs": [
-        {
-          "since": "0x0",
-          "previous_output": {
-            "tx_hash": "0x3e27a1a247f2378dd609dbb2f29876350ac2898d22332dac64bfa22d1e5fa282",
-            "index": "0x1"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "capacity": "0x2b95fd500",
-          "lock": {
-            "code_hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-            "hash_type": "data",
-            "args": "0x"
-          },
-          "type": null
-        },
-        {
-          "capacity": "0x3a4cf27649",
-          "lock": {
-            "code_hash": "0x9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8",
-            "hash_type": "type",
-            "args": "0xc5113faa44dfd8ad676ec8e59f001addfd89d59e"
-          },
-          "type": null
-        }
-      ],
-      "outputs_data": [
-        "0x020000003e27a1a247f2378dd609dbb2f29876350ac2898d22332dac64bfa22d1e5fa28200000000e2fb199810d49a4d8beec56718ba2593b665db9d52299a0f9e6e75416d73ff5c03000000",
-        "0x"
-      ],
-      "witnesses": [
-        "0x5500000010000000550000005500000041000000d93023fc38d7caf0241be7b88da9a46f16984a401c6c2099831af7fb35ddbc8d31239e80c4aee2c498bde6c15b26fc7c4d5fef1d90af3182d7e79f6d645fee3a00"
-      ]
-    },
     "0xe2f74c56cdc610d2b9fe898a96a80118845f5278605d7f9ad535dad69ae015bf": {
       "version": "0x0",
       "cell_deps": [
@@ -211,6 +162,55 @@
       "witnesses": [
         "0x55000000100000005500000055000000410000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
         "0x"
+      ]
+    },
+    "0x6888aa39ab30c570c2c30d9d5684d3769bf77265a7973211a3c087fe8efbf738": {
+      "version": "0x0",
+      "cell_deps": [
+        {
+          "out_point": {
+            "tx_hash": "0x71a7ba8fc96349fea0ed3a5c47992e3b4084b031a42264a018e0072e8172e46c",
+            "index": "0x0"
+          },
+          "dep_type": "dep_group"
+        }
+      ],
+      "header_deps": [],
+      "inputs": [
+        {
+          "since": "0x0",
+          "previous_output": {
+            "tx_hash": "0x3e27a1a247f2378dd609dbb2f29876350ac2898d22332dac64bfa22d1e5fa282",
+            "index": "0x1"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "capacity": "0x2b95fd500",
+          "lock": {
+            "code_hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "hash_type": "data",
+            "args": "0x"
+          },
+          "type": null
+        },
+        {
+          "capacity": "0x3a4cf27649",
+          "lock": {
+            "code_hash": "0x9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8",
+            "hash_type": "type",
+            "args": "0xc5113faa44dfd8ad676ec8e59f001addfd89d59e"
+          },
+          "type": null
+        }
+      ],
+      "outputs_data": [
+        "0x020000003e27a1a247f2378dd609dbb2f29876350ac2898d22332dac64bfa22d1e5fa28200000000e2fb199810d49a4d8beec56718ba2593b665db9d52299a0f9e6e75416d73ff5c03000000",
+        "0x"
+      ],
+      "witnesses": [
+        "0x5500000010000000550000005500000041000000d93023fc38d7caf0241be7b88da9a46f16984a401c6c2099831af7fb35ddbc8d31239e80c4aee2c498bde6c15b26fc7c4d5fef1d90af3182d7e79f6d645fee3a00"
       ]
     }
   },
@@ -275,7 +275,11 @@
       "0x"
     ]
   },
-  "cell_tx_signatures": {},
+  "cell_tx_signatures": {
+    "0xc5113faa44dfd8ad676ec8e59f001addfd89d59e": [
+      "0x41a44eb02d102c6a1f4b70f27eda8bfe08c1b11a4a2a4ebc983f8eddedd29aec13579f1756efab740c1823b12fc9ac38d0e57d6640e042bbd8ceb0b04b98f12501"
+    ]
+  },
   "cell_changes": [
     {
       "name": "did-ckb-ts",
